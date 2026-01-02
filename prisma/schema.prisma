@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+
+}
+
+model Shop {
+  id   String  @id @default(cuid())
+  name String
+  lat  Float
+  lng  Float
+}
+
+model Request {
+  id     String @id @default(cuid())
+  item   String
+  status String @default("PENDING")
+  shopId String
+}
